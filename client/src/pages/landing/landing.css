@@ -1,0 +1,144 @@
+.landing-root {
+  --landing-max: 1200px;
+  background-color: #fbfcff;
+  background-image:
+    radial-gradient(900px 520px at 8% -8%, rgba(125, 227, 238, 0.28), transparent 62%),
+    radial-gradient(820px 480px at 96% 4%, rgba(196, 181, 253, 0.3), transparent 60%),
+    radial-gradient(760px 520px at 82% 88%, rgba(255, 195, 140, 0.22), transparent 62%),
+    radial-gradient(700px 520px at 6% 92%, rgba(177, 242, 217, 0.26), transparent 64%),
+    linear-gradient(170deg, #ffffff 0%, #f7f9ff 42%, #fbfdfa 100%);
+}
+
+.landing-container {
+  width: 100%;
+  max-width: var(--landing-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.15rem, 4vw, 2rem);
+}
+
+.landing-section {
+  position: relative;
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  scroll-margin-top: 6rem;
+}
+
+.landing-h2 {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-size: clamp(1.85rem, 3.6vw, 3.1rem);
+  line-height: 1.07;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  text-wrap: balance;
+}
+
+.landing-h3 {
+  font-family: 'Sora', 'Inter', sans-serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.landing-lead {
+  font-size: clamp(0.95rem, 1.15vw, 1.09rem);
+  line-height: 1.6;
+  color: #475569;
+}
+
+.landing-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4f46e5;
+}
+
+/* Fine grid used behind the hero and CTA panels. */
+.landing-grid {
+  background-image:
+    linear-gradient(to right, rgba(99, 102, 241, 0.075) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.075) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 45%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 45%, transparent 100%);
+}
+
+/* Product mockup window */
+.mock-window {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.82));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 38px 80px -42px rgba(49, 46, 129, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+.mock-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0.55rem 0.9rem;
+}
+.mock-dot {
+  height: 7px;
+  width: 7px;
+  border-radius: 999px;
+}
+
+.landing-scroll-x {
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+.landing-scroll-x::-webkit-scrollbar {
+  display: none;
+}
+.landing-scroll-x > * {
+  scroll-snap-align: center;
+}
+
+.landing-marquee {
+  display: flex;
+  width: max-content;
+  animation: landing-marquee 34s linear infinite;
+}
+.landing-marquee:hover {
+  animation-play-state: paused;
+}
+@keyframes landing-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.landing-shine {
+  position: relative;
+  overflow: hidden;
+}
+.landing-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 25%, rgba(255, 255, 255, 0.55) 45%, transparent 62%);
+  transform: translateX(-120%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.landing-shine:hover::after {
+  transform: translateX(120%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-marquee {
+    animation: none;
+  }
+}
